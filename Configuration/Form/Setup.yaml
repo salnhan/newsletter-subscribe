@@ -1,0 +1,43 @@
+TYPO3:
+  CMS:
+    Form:
+      persistenceManager:
+        allowedExtensionPaths:
+          30: 'EXT:newsletter_subscribe/Configuration/Form/Predefined/Simple'
+      prototypes:
+        newsletterSubscribeForm:
+          __inheritances:
+            10: 'TYPO3.CMS.Form.prototypes.standard'
+          validatorsDefinition:
+            EmailRegistered:
+              implementationClassName: 'Salnhan\NewsletterSubscribe\Domain\Validator\EmailRegisteredValidator'
+              options:
+                isSubscribe: true
+          formElementsDefinition:
+            Form:
+              renderingOptions:
+                translation:
+                  translationFile:
+                    20: 'EXT:newsletter_subscribe/Resources/Private/Language/locallang.xlf'
+                templateRootPaths:
+                  200: 'EXT:newsletter_subscribe/Resources/Private/Templates/Extensions/Forms/Newsletter/Frontend/Templates/'
+                partialRootPaths:
+                  200: 'EXT:newsletter_subscribe/Resources/Private/Templates/Extensions/Forms/Newsletter/Frontend/Partials/'
+        newsletterUnsubscribeForm:
+          __inheritances:
+            10: 'TYPO3.CMS.Form.prototypes.standard'
+          validatorsDefinition:
+            EmailRegistered:
+              implementationClassName: 'Salnhan\NewsletterSubscribe\Domain\Validator\EmailRegisteredValidator'
+              options:
+                isSubscribe: false
+          formElementsDefinition:
+            Form:
+              renderingOptions:
+                translation:
+                  translationFile:
+                    20: 'EXT:newsletter_subscribe/Resources/Private/Language/locallang.xlf'
+                templateRootPaths:
+                  200: 'EXT:newsletter_subscribe/Resources/Private/Templates/Extensions/Forms/Newsletter/Frontend/Templates/'
+                partialRootPaths:
+                  200: 'EXT:newsletter_subscribe/Resources/Private/Templates/Extensions/Forms/Newsletter/Frontend/Partials/'

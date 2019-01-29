@@ -1,0 +1,44 @@
+# typoscript config for newsletter registration
+plugin.tx_form {
+    newsletter {
+        subscribe {
+            # sender address for the confirm email to subscriber
+            senderAddress = newsletter@typo3.org
+            senderName = typo3.org Newsletter
+
+            # storagePid for email address of subscriber in backend
+            address {
+                storagePid = 515
+            }
+
+            # redirect page after subscribe
+            redirectPageUid = 517
+        }
+
+        userEmail {
+            confirm {
+                # subscribe confirm success page
+                successPageUid = 543
+
+                # subscribe failure page
+                failurePageUid = 544
+            }
+
+            deny {
+                # subscribe deny success page
+                successPageUid = 505
+
+                # subscribe deny failure page
+                denyFailurePageUid = 504
+            }
+        }
+
+        unsubscribe {
+            # unsubscribe page
+            pageUid = 516
+
+            # redirect page after unsubscribe with form
+            redirectPageUid = 518
+        }
+    }
+}

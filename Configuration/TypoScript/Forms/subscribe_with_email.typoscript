@@ -1,0 +1,57 @@
+plugin.tx_form {
+    settings {
+        formDefinitionOverrides {
+            newsletterSubscribeOneEmailField {
+                renderables {
+                    0 {
+                        renderables {
+                            0 {
+                                renderables {
+                                    # override value of hidden field unsubscribePageUid
+                                    2.defaultValue = {$plugin.tx_form.newsletter.unsubscribe.pageUid}
+                                }
+                            }
+                        }
+                    }
+                }
+                finishers {
+                    0 {
+                        options {
+                            databaseColumnMappings {
+                                # override value of StoragePid
+                                pid.value = {$plugin.tx_form.newsletter.subscribe.address.storagePid}
+                            }
+                        }
+                    }
+                    1 {
+                        options {
+                            # override sender address
+                            senderAddress = {$plugin.tx_form.newsletter.subscribe.senderAddress}
+                            senderName = {$plugin.tx_form.newsletter.subscribe.senderName}
+                            replyToAddress = {$plugin.tx_form.newsletter.subscribe.senderAddress}
+                            variables {
+                                unsubscribePage = {$plugin.tx_form.newsletter.unsubscribe.pageUid}
+                            }
+                        }
+                    }
+                    2 {
+                        options {
+                            # override redirect page after newsletter registration
+                            pageUid = {$plugin.tx_form.newsletter.subscribe.redirectPageUid}
+                        }
+                    }
+                }
+            }
+
+            newsletterSubscribeOneEmailField {
+                finishers {
+                    1 {
+                        options {
+                            pageUid = {$plugin.tx_form.newsletter.unsubscribe.redirectPageUid}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

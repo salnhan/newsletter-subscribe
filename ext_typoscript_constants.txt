@@ -1,0 +1,1 @@
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:newsletter_subscribe/Configuration/TypoScript/constants.typoscript">

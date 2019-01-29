@@ -1,0 +1,33 @@
+plugin.tx_form {
+
+    settings {
+        newsletter {
+            userEmail {
+                confirm {
+                    successPageUid = {$plugin.tx_form.newsletter.userEmail.confirm.successPageUid}
+                    failurePageUid = {$plugin.tx_form.newsletter.userEmail.confirm.failurePageUid}
+                }
+                deny {
+                    successPageUid = {$plugin.tx_form.newsletter.userEmail.deny.successPageUid}
+                    failurePageUid = {$plugin.tx_form.newsletter.userEmail.deny.failurePageUid}
+                }
+            }
+        }
+
+        yamlConfigurations {
+            30 = EXT:newsletter_subscribe/Configuration/Form/Setup.yaml
+        }
+    }
+}
+
+module.tx_form {
+    settings {
+        yamlConfigurations {
+            30 = EXT:newsletter_subscribe/Configuration/Form/Setup.yaml
+        }
+    }
+}
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:newsletter_subscribe/Configuration/TypoScript/Forms/subscribe_with_email.typoscript">
+
+
