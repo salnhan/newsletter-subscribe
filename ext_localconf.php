@@ -16,6 +16,11 @@ if (!defined('TYPO3_MODE')) {
     die('Access denied.');
 }
 
+// Register EXT:Form xclass for FormFrontendController
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][\TYPO3\CMS\Form\Controller\FormFrontendController::class] = [
+    'className' => \Salnhan\NewsletterSubscribe\Controller\FormFrontendController::class
+];
+
 // Register EXT:Form Hooks
 // generate activation code for newsletter
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/form']['afterSubmit']['1'] = \Salnhan\NewsletterSubscribe\Domain\Finishers\GenerateActivationCode::class;
