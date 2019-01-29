@@ -1,0 +1,83 @@
+
+renderingOptions:
+  submitButtonLabel: 'Submit'
+type: Form
+identifier: newsletterSubscribeOneEmailField
+label: 'Newsletter registration - Form with Only one email field'
+prototypeName: newsletterSubscribeOneEmailFieldForm
+finishers:
+  -
+    options:
+      table: tt_address
+      mode: insert
+      databaseColumnMappings:
+        hidden:
+          value: '1'
+        pid:
+          value: ''
+        module_sys_dmail_html:
+          value: '1'
+      elements:
+        email:
+          mapOnDatabaseColumn: email
+        activationCode:
+          mapOnDatabaseColumn: activation_code
+    identifier: SaveToDatabase
+  -
+    options:
+      subject: 'Form Newsletter Subscription'
+      recipientAddress: '{email}'
+      recipientName: '{email}'
+      senderAddress: 'newsletter@typo3.org'
+      senderName: 'Newsletter subscription'
+      replyToAddress: 'newsletter@typo3.org'
+      carbonCopyAddress: ''
+      blindCarbonCopyAddress: ''
+      format: html
+      attachUploads: false
+      templatePathAndFilename: 'EXT:newsletter_subscribe/Resources/Private/Templates/EmailUser.html'
+      variables:
+        unsubscribePage: ''
+      translation:
+        language: ''
+    identifier: EmailToReceiver
+  -
+    options:
+      pageUid: ''
+    identifier: Redirect
+renderables:
+  -
+    renderingOptions:
+      previousButtonLabel: 'Previous step'
+      nextButtonLabel: 'Next step'
+    type: Page
+    identifier: page-1
+    renderables:
+      -
+        type: GridRow
+        identifier: gridrow-1
+        label: 'Grid: Row'
+        renderables:
+          -
+            defaultValue: ''
+            type: Text
+            identifier: email
+            label: E-mail
+            properties:
+              fluidAdditionalAttributes:
+                required: required
+            validators:
+              -
+                identifier: NotEmpty
+              -
+                identifier: EmailAddress
+              -
+                identifier: EmailRegistered
+          -
+            defaultValue: ''
+            type: Hidden
+            identifier: activationCode
+          -
+            defaultValue: ''
+            type: Hidden
+            identifier: unsubscribePageUid

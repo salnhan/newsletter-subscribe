@@ -1,0 +1,50 @@
+
+renderingOptions:
+  submitButtonLabel: 'Unsubmit'
+type: Form
+identifier: newsletterUnsubscribeOneEmailField
+label: 'Newsletter deregistration - Form with Only one email field'
+prototypeName: newsletterUnsubscribeOneEmailFieldForm
+finishers:
+  -
+    options:
+      table: tt_address
+      mode: update
+      whereClause:
+        email: '{email}'
+      databaseColumnMappings:
+        deleted:
+          value: '1'
+    identifier: SaveToDatabase
+  -
+    options:
+      pageUid: '435'
+    identifier: Redirect
+renderables:
+  -
+    renderingOptions:
+      previousButtonLabel: 'Previous step'
+      nextButtonLabel: 'Next step'
+    type: Page
+    identifier: page-1
+    renderables:
+      -
+        type: GridRow
+        identifier: gridrow-1
+        label: 'Grid: Row'
+        renderables:
+          -
+            defaultValue: ''
+            type: Text
+            identifier: email
+            label: E-mail
+            properties:
+              fluidAdditionalAttributes:
+                required: required
+            validators:
+              -
+                identifier: NotEmpty
+              -
+                identifier: EmailAddress
+              -
+                identifier: EmailRegistered

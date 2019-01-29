@@ -1,0 +1,29 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" data-namespace-typo3-fluid="true">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="format-detection" content="telephone=no">
+</head>
+<body>
+<p>
+    <f:translate key="LLL:{form.formDefinition.renderingOptions.translation.translationFile.20}:email.user.salutation" />,</p>
+<p>
+    <f:translate key="LLL:{form.formDefinition.renderingOptions.translation.translationFile.20}:email.user.greeting" />
+<p>
+    <f:translate key="LLL:{form.formDefinition.renderingOptions.translation.translationFile.20}:email.user.text" /><br />
+    <f:link.action action="perform" extensionName="form" controller="FormFrontend" pluginName="formframework" arguments="{confirm: '1', activationCode: '{form.formstate.formValues.activationCode}'}" absolute="1">
+        <f:translate key="LLL:{form.formDefinition.renderingOptions.translation.translationFile.20}:email.user.subscribe.confirm" />
+    </f:link.action>
+</p>
+<p>
+    <f:translate key="LLL:{form.formDefinition.renderingOptions.translation.translationFile.20}:email.user.unsubscribe.link.text" /><br />
+    <f:link.action pageUid="{form.formstate.formValues.unsubscribePageUid}" action="perform" extensionName="tx_form" controller="FormFrontend" pluginName="formframework" arguments="{confirm: '0', activationCode: '{form.formstate.formValues.activationCode}'}" absolute="1">
+        <f:translate key="LLL:{form.formDefinition.renderingOptions.translation.translationFile.20}:email.user.subscribe.deny" />
+    </f:link.action>
+</p>
+<p>
+    <f:translate key="LLL:{form.formDefinition.renderingOptions.translation.translationFile.20}:email.user.footer.greeting" /><br />
+    <f:translate key="LLL:{form.formDefinition.renderingOptions.translation.translationFile.20}:email.user.footer.companyName" />
+</p>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2019-01-27T10:00:00Z" product-name="newsletter_subscribe">
+        <header/>
+        <body>
+            <trans-unit id="form.newsletter.notice.mandatory" xml:space="preserve">
+                <target>* Pflichtfelder</target>
+            </trans-unit>
+            <trans-unit id="validation.error.email.1221559976" xml:space="preserve">
+                <target>Bitte geben Sie eine gültige E-Mail Adresse ein!</target>
+            </trans-unit>
+            <trans-unit id="validation.email.existed" xml:space="preserve">
+                <target>Diese E-Mail ist bereits registriert!</target>
+            </trans-unit>
+            <trans-unit id="validation.email.notExisted" xml:space="preserve">
+                <target>Diese E-Mail Adresse ist nicht registriert.</target>
+            </trans-unit>
+            <trans-unit id="email.user.salutation" xml:space="preserve">
+                <target>Hallo</target>
+            </trans-unit>
+            <trans-unit id="email.user.greeting" xml:space="preserve">
+                <target>Sie haben sich in unseren Newsletter eingetragen.</target>
+            </trans-unit>
+            <trans-unit id="email.user.text" xml:space="preserve">
+                <target>Bevor Sie jedoch E-Mails empfangen können, müssen Sie noch folgenden Link aufrufen. Ansonsten ist Ihre Anmeldung noch nicht vollständig.</target>
+            </trans-unit>
+            <trans-unit id="email.user.subscribe.confirm" xml:space="preserve">
+                <target>Registrierung abschließen</target>
+            </trans-unit>
+            <trans-unit id="email.user.subscribe.deny" xml:space="preserve">
+                <target>Registrierung abweisen</target>
+            </trans-unit>
+            <trans-unit id="email.user.unsubscribe.link.text" xml:space="preserve">
+                <target>Wenn Sie unseren Newsletter nicht abonnieren möchten oder eine dritte Person Sie eingetragen hat, klicken Sie bitte auf folgenden Link, um aus unserer Datenbank gelöscht zu werden:</target>
+            </trans-unit>
+            <trans-unit id="email.user.footer.greeting" xml:space="preserve">
+                <target>Mit freundlichen Grüßen</target>
+            </trans-unit>
+            <trans-unit id="email.user.footer.companyName" xml:space="preserve">
+                <target>Newsletter Service Team</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
