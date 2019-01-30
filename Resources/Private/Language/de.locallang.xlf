@@ -39,6 +39,18 @@
             <trans-unit id="email.user.footer.companyName" xml:space="preserve">
                 <target>Newsletter Service Team</target>
             </trans-unit>
+            <trans-unit id="element.newsletterSubscribeOneEmailField.renderingOptions.submitButtonLabel" xml:space="preserve">
+                <target>Anmelden</target>
+            </trans-unit>
+            <trans-unit id="element.newsletterUnsubscribeOneEmailField.renderingOptions.submitButtonLabel" xml:space="preserve">
+                <target>Abmelden</target>
+            </trans-unit>
+            <trans-unit id="form.newsletterSubscribeOneEmailField.label" xml:space="preserve">
+                <target>Newsletteranmeldung</target>
+            </trans-unit>
+            <trans-unit id="form.newsletterSubscribeOneEmailField.label" xml:space="preserve">
+                <target>Newsletterabmeldung</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

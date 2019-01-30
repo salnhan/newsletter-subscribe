@@ -5,12 +5,12 @@ TYPO3:
         allowedExtensionPaths:
           30: 'EXT:newsletter_subscribe/Configuration/Form/Predefined/Simple'
       prototypes:
-        newsletterSubscribeForm:
+        newsletterSubscribeOneEmailFieldForm:
           __inheritances:
             10: 'TYPO3.CMS.Form.prototypes.standard'
           validatorsDefinition:
             EmailRegistered:
-              implementationClassName: 'Salnhan\NewsletterSubscribe\Domain\Validator\EmailRegisteredValidator'
+              implementationClassName: 'Salnhan\NewsletterSubscribe\Domain\Validators\EmailRegisteredValidator'
               options:
                 isSubscribe: true
           formElementsDefinition:
@@ -20,15 +20,15 @@ TYPO3:
                   translationFile:
                     20: 'EXT:newsletter_subscribe/Resources/Private/Language/locallang.xlf'
                 templateRootPaths:
-                  200: 'EXT:newsletter_subscribe/Resources/Private/Templates/Extensions/Forms/Newsletter/Frontend/Templates/'
+                  200: 'EXT:newsletter_subscribe/Resources/Private/Templates/Simple/OneEmailField'
                 partialRootPaths:
-                  200: 'EXT:newsletter_subscribe/Resources/Private/Templates/Extensions/Forms/Newsletter/Frontend/Partials/'
-        newsletterUnsubscribeForm:
+                  200: 'EXT:newsletter_subscribe/Resources/Private/Partials/Simple/OneEmailField'
+        newsletterUnsubscribeOneEmailFieldForm:
           __inheritances:
             10: 'TYPO3.CMS.Form.prototypes.standard'
           validatorsDefinition:
             EmailRegistered:
-              implementationClassName: 'Salnhan\NewsletterSubscribe\Domain\Validator\EmailRegisteredValidator'
+              implementationClassName: 'Salnhan\NewsletterSubscribe\Domain\Validators\EmailRegisteredValidator'
               options:
                 isSubscribe: false
           formElementsDefinition:

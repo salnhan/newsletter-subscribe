@@ -16,25 +16,37 @@
                 <source>Hello</source>
             </trans-unit>
             <trans-unit id="email.user.greeting" xml:space="preserve">
-                <source>Sie haben sich in unseren Newsletter eingetragen.</source>
+                <source>You have subscribed to our newsletter.</source>
             </trans-unit>
             <trans-unit id="email.user.text" xml:space="preserve">
-                <source>Bevor Sie jedoch E-Mails empfangen können, müssen Sie noch folgenden Link aufrufen. Ansonsten ist Ihre Anmeldung noch nicht vollständig.</source>
+                <source>Before you can receive emails, you need to click the following link to confirm the subscription. Otherwise your subscription is not complete yet.</source>
             </trans-unit>
             <trans-unit id="email.user.subscribe.confirm" xml:space="preserve">
-                <source>Registrierung abschließen</source>
+                <source>Complete registration</source>
             </trans-unit>
             <trans-unit id="email.user.subscribe.deny" xml:space="preserve">
-                <source>Registrierung abweisen</source>
+                <source>Reject registration</source>
             </trans-unit>
             <trans-unit id="email.user.unsubscribe.link.text" xml:space="preserve">
-                <source>Wenn Sie unseren Newsletter nicht abonnieren möchten oder eine dritte Person Sie eingetragen hat, klicken Sie bitte auf folgenden Link, um aus unserer Datenbank gelöscht zu werden:</source>
+                <source>If you do not wish to subscribe to our newsletter or if a third person has registered you, please click on the following link to be deleted from our database:</source>
             </trans-unit>
             <trans-unit id="email.user.footer.greeting" xml:space="preserve">
-                <source>Mit freundlichen Grüßen</source>
+                <source>Yours sincerely</source>
             </trans-unit>
             <trans-unit id="email.user.footer.companyName" xml:space="preserve">
                 <source>Newsletter Service Team</source>
+            </trans-unit>
+            <trans-unit id="element.newsletterSubscribeOneEmailField.renderingOptions.submitButtonLabel" xml:space="preserve">
+                <source>Subscribe</source>
+            </trans-unit>
+            <trans-unit id="element.newsletterUnsubscribeOneEmailField.renderingOptions.submitButtonLabel" xml:space="preserve">
+                <source>Unsubscribe</source>
+            </trans-unit>
+            <trans-unit id="form.newsletterSubscribeOneEmailField.label" xml:space="preserve">
+                <source>Newsletter subscribe</source>
+            </trans-unit>
+            <trans-unit id="form.newsletterUnsubscribeOneEmailField.label" xml:space="preserve">
+                <source>Newsletter unsubscribe</source>
             </trans-unit>
         </body>
     </file>

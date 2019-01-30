@@ -3,7 +3,7 @@ renderingOptions:
   submitButtonLabel: 'Unsubmit'
 type: Form
 identifier: newsletterUnsubscribeOneEmailField
-label: 'Newsletter deregistration - Form with Only one email field'
+label: 'Newsletter deregistration - Form with only one email field'
 prototypeName: newsletterUnsubscribeOneEmailFieldForm
 finishers:
   -

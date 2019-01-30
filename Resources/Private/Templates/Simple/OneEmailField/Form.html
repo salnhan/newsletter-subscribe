@@ -15,18 +15,18 @@
             <div class="row">
                 <div class="large-6 columns">
                     <fieldset>
-                        <legend>{form.formDefinition.label}</legend>
+                        <legend><f:translate key="LLL:{form.formDefinition.renderingOptions.translation.translationFile.20}:form.newsletterSubscribeOneEmailField.label" /></legend>
                         <div class="row">
                             <f:render partial="{form.currentPage.templateName}" arguments="{page: form.currentPage}" />
                         </div>
                         <div class="row">
                             <f:render partial="Form/Navigation" arguments="{form: form}" />
+                            <p><f:translate key="LLL:{form.formDefinition.renderingOptions.translation.translationFile.20}:form.newsletter.notice.mandatory" /></p>
                         </div>
                     </fieldset>
                 </div>
             </div>
         </formvh:form>
-        <p><f:translate key="LLL:{form.formDefinition.renderingOptions.translation.translationFile.20}:form.newsletter.notice.mandatory" /></p>
     </div>
 </formvh:renderRenderable>
 </html>

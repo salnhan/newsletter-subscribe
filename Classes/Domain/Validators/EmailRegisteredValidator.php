@@ -17,6 +17,7 @@ namespace Salnhan\NewsletterSubscribe\Domain\Validators;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
+use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 use TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator;
 use FriendsOfTYPO3\TtAddress\Domain\Repository\AddressRepository;
 
@@ -44,66 +45,49 @@ class EmailRegisteredValidator extends AbstractValidator
      */
     public function isValid($value)
     {
-        if ($this->options['isSubscribe']) {
-            $this->validateEmailForSubscribe($value);
-        } else {
-            $this->validateEmailForUnsubscribe($value);
-        }
-    }
-
-    /**
-     * validate email for newsletter subscribe
-     *
-     * @param string $email
-     */
-    protected function validateEmailForSubscribe($email)
-    {
-        /** @var \TYPO3\CMS\Core\Database\Query\QueryBuilder $queryBuilder */
-        $queryBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ConnectionPool::class)->getQueryBuilderForTable('tt_address');
-        // don't care hidden is 0 or 1
-        $queryBuilder->getRestrictions()->removeByType(\TYPO3\CMS\Core\Database\Query\Restriction\HiddenRestriction::class);
-        $queryBuilder->select('uid')
-            ->from('tt_address')
-            ->where(
-                $queryBuilder->expr()->eq(
-                    'email',
-                    $queryBuilder->createNamedParameter($email, \PDO::PARAM_STR)
-                )
-            );
-
-        $result = $queryBuilder->execute()->fetch();
-
-        if (!empty($result)) {
-            $this->addError(
-                $this->translateErrorMessage(
-                    'validation.email.existed',
-                    'rlp'
-                ),
-                1547222415
-            );
-        }
-    }
-
-    /**
-     * Validate email for newsletter unsubscribe
-     *
-     * @param $email
-     */
-    protected function validateEmailForUnsubscribe($email)
-    {
+        /** @var \TYPO3\CMS\Extbase\Object\ObjectManager $objectManager */
         $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+
+        /** @var \FriendsOfTYPO3\TtAddress\Domain\Repository\AddressRepository $addressRepository */
         $addressRepository = $objectManager->get(AddressRepository::class);
 
-        $result = $addressRepository->findOneByEmail($email);
+        /** @var \TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings $querySettings */
+        $querySettings = $objectManager->get(Typo3QuerySettings::class);
 
-        if (empty($result)) {
-            $this->addError(
-                $this->translateErrorMessage(
-                    'validation.email.notExisted',
-                    'rlp'
-                ),
-                1547467836
-            );
+        if ($this->options['isSubscribe']) {
+            // Get active or not active email in tt_address
+            // don't care value of hidden field
+            $querySettings->setIgnoreEnableFields(true);
+
+            // don't respect storage page
+            $querySettings->setRespectStoragePage(false);
+
+            $addressRepository->setDefaultQuerySettings($querySettings);
+            $result = $addressRepository->findOneByEmail($value);
+
+            // return error message if email is already existed
+            if (!empty($result)) {
+                $this->addError(
+                    $this->translateErrorMessage(
+                        'validation.email.existed',
+                        'rlp'
+                    ),
+                    1547222415
+                );
+            }
+        } else {
+            // Get only active email
+            $result = $addressRepository->findOneByEmail($value);
+            // return error message, if email is still not existed
+            if (empty($result)) {
+                $this->addError(
+                    $this->translateErrorMessage(
+                        'validation.email.notExisted',
+                        'rlp'
+                    ),
+                    1547467836
+                );
+            }
         }
     }
 }

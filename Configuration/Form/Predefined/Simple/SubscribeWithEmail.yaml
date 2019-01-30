@@ -3,7 +3,7 @@ renderingOptions:
   submitButtonLabel: 'Submit'
 type: Form
 identifier: newsletterSubscribeOneEmailField
-label: 'Newsletter registration - Form with Only one email field'
+label: 'Newsletter registration - Form with only one email field'
 prototypeName: newsletterSubscribeOneEmailFieldForm
 finishers:
   -
