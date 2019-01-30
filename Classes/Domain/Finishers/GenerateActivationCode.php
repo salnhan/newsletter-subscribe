@@ -1,4 +1,5 @@
 <?php
+
 namespace Salnhan\NewsletterSubscribe\Domain\Finishers;
 
 /*
