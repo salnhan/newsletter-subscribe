@@ -14,7 +14,7 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'TYPO3 extension for newsletter subscription',
-    'description' => 'Customer Templates and Files',
+    'description' => 'Double Opt In newsletter subscription with direct mail',
     'category' => 'misc',
     'author' => 'Minh-Thien Nhan',
     'author_email' => 'timit06@yahoo.com',
@@ -22,7 +22,7 @@ $EM_CONF[$_EXTKEY] = [
     'uploadfolder' => 0,
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
-    'version' => '1.0.0',
+    'version' => '1.0.0-dev',
     'constraints' => [
         'depends' => [
             'typo3' => '8.7.0-8.7.99',
@@ -31,5 +31,10 @@ $EM_CONF[$_EXTKEY] = [
         ],
         'conflicts' => [],
         'suggests' => []
+    ],
+    'autoload' => [
+        'psr-4' => [
+            '\\Salnhan\\NewsletterSubscribe\\' => 'Classes/'
+        ]
     ]
 ];
