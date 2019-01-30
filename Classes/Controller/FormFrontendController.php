@@ -35,9 +35,10 @@ class FormFrontendController extends \TYPO3\CMS\Form\Controller\FormFrontendCont
      */
     public function performAction()
     {
-        // Process confirm request from confirm email. Accept only boolean value of field 'confirm'
+        // Process confirm request from confirm email. Accept only value 0 or 1 of field 'confirm'
+        // Confirm registration if 'confirm' = 1, deny registration if 'confirm' = 0
         if ($this->request->hasArgument('confirm') &&
-            \is_bool((bool)$this->request->getArgument('confirm')) &&
+            ((int)$this->request->getArgument('confirm') === 1 || (int)$this->request->getArgument('confirm') === 0) &&
             $this->request->hasArgument('activationCode') &&
             !empty($this->request->getArgument('activationCode'))
         ) {
