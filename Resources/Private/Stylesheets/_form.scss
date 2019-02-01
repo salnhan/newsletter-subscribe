@@ -1,0 +1,43 @@
+.Tx-Form {
+
+  fieldset {
+    margin: rem-calc(0 0 30 0);
+    padding: rem-calc(10 20);
+
+    .button {
+      margin-top: rem-calc(10);
+    }
+  }
+
+  .error {
+    background: none;
+    margin-bottom: 0;
+    border-color: $color-error;
+  }
+
+  label {
+    padding: rem-calc(0);
+    margin: 0;
+  }
+
+  .row input {
+    margin-bottom: rem-calc(10);
+  }
+
+  .greeting {
+    padding-bottom: rem-calc(30);
+  }
+
+  .form-buttons {
+    margin-top: rem-calc(30);
+  }
+
+  .prevStep {
+    margin-right: rem-calc(30);
+  }
+
+  legend {
+    color: $color-gray-200;
+  }
+
+}

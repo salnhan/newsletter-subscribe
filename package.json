@@ -1,0 +1,24 @@
+{
+  "name": "newsletter-subscribe",
+  "version": "1.0.0",
+  "description": "This extension offers double opt in newsletter subscription forms for the [TYPO3 CMS](http://typo3.org).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salnhan/newsletter_subscribe.git"
+  },
+  "author": "Miinh-Thien Nhan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/salnhan/newsletter_subscribe/issues"
+  },
+  "homepage": "https://github.com/salnhan/newsletter_subscribe#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-sass": "^4.0.2"
+  }
+}
